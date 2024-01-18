@@ -37,10 +37,10 @@ export default function Navbar(props) {
     const location = useLocation();
     const user = useMemo(
         () => ({
-            firstName: 'OAuth',
-            lastName: 'Admin',
-            email: 'authentication@oauth.com',
-            role: 'admin',
+            firstName: 'React',
+            lastName: 'User',
+            email: 'example@oreact.com',
+            role: 'react',
         }),
         []
     );
