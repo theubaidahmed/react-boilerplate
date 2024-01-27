@@ -39,7 +39,7 @@ export default function Navbar(props) {
         () => ({
             firstName: 'React',
             lastName: 'User',
-            email: 'example@oreact.com',
+            email: 'example@react.com',
             role: 'react',
         }),
         []
@@ -265,7 +265,7 @@ export default function Navbar(props) {
                                             href='#'
                                             color='primary.main'
                                             display='block'>
-                                            My OAuth account
+                                            My Account
                                         </Typography>
                                         <Typography
                                             variant='caption'

@@ -4,7 +4,7 @@ This Repo contains essential components that are required for fast startup of yo
 
 ### Overview
 
-![preview](/public/images/overview.png)
+![Alt text](/public/images/overview.png)
 
 # Getting Started with Create React App
 

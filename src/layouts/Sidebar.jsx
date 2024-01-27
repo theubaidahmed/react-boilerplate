@@ -37,7 +37,7 @@ const Sidebar = () => {
                     to='/'
                     sx={{ textDecoration: 'none', color: 'text.primary', py: 3 }}>
                     <Image alt='#logo' name='logo.png' sx={{ height: '30px' }} />
-                    <Typography variant='h5' fontWeight={500} sx={{ ml: 1, color: '#808282' }}>
+                    {/* <Typography variant='h5' fontWeight={500} sx={{ ml: 1, color: '#808282' }}>
                         React
                     </Typography>
                     <Typography
@@ -46,7 +46,7 @@ const Sidebar = () => {
                         color='text.tertiary'
                         sx={{ ml: 1, color: '#949697' }}>
                         Dashboard
-                    </Typography>
+                    </Typography> */}
                 </Box>
 
                 <Divider variant='middle' />
