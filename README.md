@@ -1,3 +1,11 @@
+# React-Mui-Boilerplate
+
+This Repo contains essential components that are required for fast startup of your application with React and Material UI 5
+
+### Overview
+
+![preview](/public/images/overview.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
