@@ -1,30 +1,21 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import Loading from '../components/Loading';
-import { getCookie } from '../utilities/cookies';
+import { getCookie, clearCookie } from '../utilities/cookies';
 import { env } from '../utilities/function';
 import { authServer } from '../utilities/axiosPrototypes';
 
 const authorizeContext = createContext();
 
 const AuthorizationProvider = ({ children }) => {
-    const [content, setContent] = useState(<Loading message='Please wait, logging you in...' />);
+    const token = getCookie('accessToken');
+    const [content, setContent] = useState(token ? children : 'Login');
     const [user, setUser] = useState({});
 
     const authorize = async (loggedIn, cb) => {
         if (loggedIn) {
             setContent(children);
         } else {
-            const redirectTo =
-                env('AUTHENTICATION_CLIENT') +
-                '/login?redirectto=' +
-                encodeURIComponent(window.location.href);
-
-            setContent(
-                <Loading
-                    message='Please wait, redirecting you to Clikkle Accounts'
-                    redirectTo={redirectTo}
-                />
-            );
+            setContent('Login');
         }
         if (typeof cb === 'function') cb(setUser);
     };
@@ -32,14 +23,14 @@ const AuthorizationProvider = ({ children }) => {
     useEffect(() => {
         (async () => {
             try {
-                const role = getCookie('role');
-                if (!role) throw new Error('role not found');
-                const response = await authServer.get(`/${role}/profile`);
+                if (!token) throw new Error('token not found');
+                const response = await authServer.get(`URL to fetch user profile with stored token`);
                 const user = response.data.user;
 
                 authorize(true, setUser => setUser(user));
             } catch (err) {
                 console.log(err);
+                clearCookie('accessToken');
                 authorize(false);
             }
         })();
